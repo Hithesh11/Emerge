@@ -1,0 +1,71 @@
+﻿@model List<Emerge.Models.Product>
+
+<h1>Product</h1>
+
+<!-- Button to trigger Create Leave Modal -->
+<button style="font-size: 12px; padding: 5px 10px;" class="btn btn-success" data-toggle="modal" data-target="#createLeaveModal">Create</button>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+               
+              
+                <th>Name</th>
+                <th>FrequencyId</th>
+                <th>Amount</th>
+                <th>ClientId</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                  
+                    <td>@item.Name</td>
+                    <td>@item.FrequencyId</td>
+                    <td>@item.Amount</td>
+                    <td>@item.ClientId</td>
+
+
+                    <td>
+                        <a asp-action="Edit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-primary" asp-route-id="@item.Id" data-id="@item.Id" data-name="@item.Name" data-frequencyid="@item.FrequencyId" data-amount="@item.Amount" data-clientid="@item.ClientId" data-toggle="modal" data-target="#editLeaveModal">Edit</a>
+
+                        <a asp-action="Delete" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-danger" asp-route-id="@item.Id" data-id="@item.Id" data-toggle="modal" data-target="#deleteLeaveModal">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No leave records found.</p>
+}
+
+
+<div class="modal fade" id="createLeaveModal" tabindex="-1" role="dialog" aria-labelledby="createLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Create",new Emerge.Models.Product())
+</div>
+
+
+<div class="modal fade" id="editLeaveModal" tabindex="-1" role="dialog" aria-labelledby="editLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Edit",new Emerge.Models.Product())
+
+</div>
+
+
+<div class="modal fade" id="deleteLeaveModal" tabindex="-1" role="dialog" aria-labelledby="deleteLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Delete",new Emerge.Models.Product())
+</div>
+
+
+
+
+
+
+
+

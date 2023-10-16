@@ -1,0 +1,77 @@
+﻿@model List<Emerge.Models.LeaveInfo>
+
+<h1>Leave Editor</h1>
+
+<!-- Button to trigger Create Leave Modal -->
+<button style="font-size: 12px; padding: 5px 10px;" class="btn btn-success" data-toggle="modal" data-target="#createLeaveModal">Create</button>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th>Leave Type</th>
+                <th>Leave Description</th>
+                <th>No. of Days</th>
+                <th>Max Slot</th>
+                <th hidden>Gender</th>
+                <th hidden>Start Validity Days</th>
+                <th hidden>Carry Forward Days</th>
+                <th>Designation</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                   
+                    <td>@item.Type</td>
+                    <td>@item.Description</td>
+                    <td>@item.NoOfDays</td>
+                    <td>@item.MaxSlot</td>
+                    <td hidden>@item.Gender</td>
+                    <td hidden>@item.StartValidityDays</td>
+                    <td hidden>@item.CarryForwardDays</td>
+                    <td>@item.Designation</td>
+
+                    <td>
+                        <a asp-action="Edit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-primary" asp-route-id="@item.Id" data-id="@item.Id" data-type="@item.Type" data-description="@item.Description" data-noofdays="@item.NoOfDays" data-maxslot="@item.MaxSlot" data-gender="@item.Gender" data-startvaliditydays="@item.StartValidityDays" data-carryforwarddays="@item.CarryForwardDays" data-designation="@item.Designation" data-toggle="modal" data-target="#editLeaveModal">Edit</a>
+
+                        <a asp-action="Delete" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-danger" asp-route-id="@item.Id" data-id="@item.Id" data-toggle="modal" data-target="#deleteLeaveModal">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No leave records found.</p>
+}
+
+
+<div class="modal fade" id="createLeaveModal" tabindex="-1" role="dialog" aria-labelledby="createLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Create",new Emerge.Models.LeaveInfo())
+</div>
+
+
+<div class="modal fade" id="editLeaveModal" tabindex="-1" role="dialog" aria-labelledby="editLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Edit",new Emerge.Models.LeaveInfo())
+
+</div>
+
+
+<div class="modal fade" id="deleteLeaveModal" tabindex="-1" role="dialog" aria-labelledby="deleteLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Delete",new Emerge.Models.LeaveInfo())
+</div>
+
+
+
+
+
+
+
+

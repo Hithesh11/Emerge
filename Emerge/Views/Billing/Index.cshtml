@@ -1,0 +1,67 @@
+﻿@model List<Emerge.Models.Billing>
+
+<h1>Billing</h1>
+
+<!-- Button to trigger Create Leave Modal -->
+<button style="font-size: 12px; padding: 5px 10px;" class="btn btn-success" data-toggle="modal" data-target="#createLeaveModal">Create</button>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th>Duration</th>
+                <th>Duration Type</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.duration</td>
+                    <td>@item.durationType</td>
+                  
+                   
+
+                    <td>
+                        <a asp-action="Edit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-primary" asp-route-id="@item.id" data-id="@item.id" data-duration="@item.duration" data-durationtype="@item.durationType" data-toggle="modal" data-target="#editLeaveModal">Edit</a>
+
+                        <a asp-action="Delete" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-danger" asp-route-id="@item.id" data-id="@item.id" data-toggle="modal" data-target="#deleteLeaveModal">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No leave records found.</p>
+}
+
+
+<div class="modal fade" id="createLeaveModal" tabindex="-1" role="dialog" aria-labelledby="createLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Create",new Emerge.Models.Billing())
+</div>
+
+
+<div class="modal fade" id="editLeaveModal" tabindex="-1" role="dialog" aria-labelledby="editLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Edit",new Emerge.Models.Billing())
+
+</div>
+
+
+<div class="modal fade" id="deleteLeaveModal" tabindex="-1" role="dialog" aria-labelledby="deleteLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Delete",new Emerge.Models.Billing())
+</div>
+
+
+
+
+
+
+
+

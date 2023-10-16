@@ -1,0 +1,236 @@
+﻿@model Emerge.Models.Accounts
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 670px; padding: 30px;">
+
+        <form asp-action="Edit" method="post">
+            <input asp-for="id" id="AccountsId" name="id" type="hidden"/>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+                    <label asp-for="empCode" class="control-label">EmpCode</label>
+                    <input asp-for="empCode" id="EmpCode1" name="empCode" class="form-control" />
+                    <span asp-validation-for="empCode" class="text-danger"></span>
+
+    </div>
+
+            <div class="form-group col-md-4">
+        <label asp-for="empName" class="control-label">EmpName</label>
+        <input asp-for="empName" id="EmpName1" name="empName" class="form-control" />
+        <span asp-validation-for="empName" class="text-danger"></span>
+    </div>
+  
+    <div class="form-group col-md-4">
+        <label asp-for="gender" class="control-label">Gender</label>
+        <input asp-for="gender" id="Gender1" name="gender" class="form-control" />
+        <span asp-validation-for="gender" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+        <label asp-for="department" class="control-label">Department</label>
+        <input asp-for="department" id="Department1" name="department" class="form-control" />
+        <span asp-validation-for="department" class="text-danger"></span>
+    </div>
+   
+            <div class="form-group col-md-4">
+        <label asp-for="payPeriod" class="control-label">PayPeriod</label>
+        <input asp-for="payPeriod" id="PayPeriod1" name="payPeriod" class="form-control" />
+        <span asp-validation-for="payPeriod" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label asp-for="doj" class="control-label">Doj</label>
+        <input asp-for="doj" id="Doj1" name="doj" class="form-control" />
+        <span asp-validation-for="doj" class="text-danger"></span>
+    </div>
+    </div>
+
+
+            <div class="form-group">
+        <label asp-for="position" class="control-label">Position</label>
+        <input asp-for="position" id="Position1" name="position" class="form-control" />
+        <span asp-validation-for="position" class="text-danger"></span>
+    </div>
+
+            <div class="form-row">
+            <div class="form-group col-md-4">
+        <label asp-for="bankName" class="control-label">BankName</label>
+        <input asp-for="bankName" id="BankName1" name="bankName" class="form-control" />
+        <span asp-validation-for="bankName" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-4">
+        <label asp-for="accNo" class="control-label">AccNo</label>
+        <input asp-for="accNo" id="AccNo1" name="accNo" class="form-control" />
+        <span asp-validation-for="accNo" class="text-danger"></span>
+    </div>
+   
+            
+            <div class="form-group col-md-4">
+        <label asp-for="payMode" class="control-label">PayMode</label>
+        <input asp-for="payMode" id="PayMode1" name="payMode" class="form-control" />
+        <span asp-validation-for="payMode" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+    <div class="form-group col-md-4">
+        <label asp-for="basic" class="control-label">Basic</label>
+        <input asp-for="basic" id="Basic1" name="basic" class="form-control" />
+        <span asp-validation-for="basic" class="text-danger"></span>
+    </div>
+
+
+            <div class="form-group col-md-4">
+        <label asp-for="hra" class="control-label">Hra</label>
+        <input asp-for="hra" id="Hra1" name="hra" class="form-control" />
+        <span asp-validation-for="hra" class="text-danger"></span>
+    </div>
+            <div class="form-group col-md-4">
+        <label asp-for="medAllowance" class="control-label">MedAllowance</label>
+        <input asp-for="medAllowance" id="MedAllowance1" name="medAllowance" class="form-control" />
+        <span asp-validation-for="medAllowance" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+        <label asp-for="conAllowance" class="control-label">ConAllowance</label>
+        <input asp-for="conAllowance" id="ConAllowance1" name="conAllowance" class="form-control" />
+        <span asp-validation-for="conAllowance" class="text-danger"></span>
+    </div>
+
+           
+            <div class="form-group col-md-4">
+        <label asp-for="flexiAllowance" class="control-label">Flexi Allowance</label>
+        <input asp-for="flexiAllowance" id="FlexiAllowance1" name="flexiAllowance" class="form-control" />
+        <span asp-validation-for="flexiAllowance" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-4">
+        <label asp-for="providentFund" class="control-label">Provident Fund</label>
+        <input asp-for="providentFund" id="ProvidentFund1" name="providentFund" class="form-control" />
+        <span asp-validation-for="providentFund" class="text-danger"></span>
+    </div></div>
+
+            <div class="form-row">
+            <div class="form-group col-md-4">
+        <label asp-for="tds" class="control-label">Tds</label>
+        <input asp-for="tds" id="Tds1" name="tds" class="form-control" />
+        <span asp-validation-for="tds" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-4">
+        <label asp-for="profTax" class="control-label">ProfTax</label>
+        <input asp-for="profTax" id="ProfTax1" name="profTax" class="form-control" />
+        <span asp-validation-for="profTax" class="text-danger"></span>
+    </div>
+            <div class="form-group col-md-4">
+        <label asp-for="lop" class="control-label">Lop</label>
+        <input asp-for="lop" id="Lop1" name="lop" class="form-control" />
+        <span asp-validation-for="lop" class="text-danger"></span>
+    </div></div>
+
+            <div class="form-group">
+        <label asp-for="netPay" class="control-label">NetPay</label>
+                <input asp-for="netPay" id="NetPay1" name="netPay" class="form-control" />
+        <span asp-validation-for="netPay" class="text-danger"></span>
+    </div>
+    <div class="form-row">
+            <div class="form-group col-md-6">
+        <label asp-for="month" class="control-label">Month</label>
+        <input asp-for="month" id="Month1" name="month" class="form-control" />
+        <span asp-validation-for="month" class="text-danger"></span>
+    </div>
+            <div class="form-group col-md-6">
+        <label asp-for="year" class="control-label">Year</label>
+        <input asp-for="year" id="Year1" name="year" class="form-control" />
+        <span asp-validation-for="year" class="text-danger"></span>
+    </div></div>
+            <div class="modal-footer justify-content-center">
+                <button type="submit"  style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Update</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+</div>
+</div>
+
+<script>
+    // JavaScript function to handle the "Edit" link click
+    $(document).ready(function () {
+        $('a[data-toggle="modal"]').on('click', function () {
+            var id = $(this).data('id'); 
+                    
+            $('#AccountsId').val(id);
+            $('#EmpCode1').val($(this).data('empcode'));
+            $('#EmpName1').val($(this).data('empname'));
+            $('#Gender1').val($(this).data('gender'));
+            var doj = new Date($(this).data('doj'));
+            var dojFormatted = doj.toISOString().split('T')[0] + 'T' + doj.toTimeString().split(' ')[0];     
+           
+            $('#Doj1').val(dojFormatted);
+
+
+
+
+            $('#BankName1').val($(this).data('bankname'));
+            $('#AccNo1').val($(this).data('accno'));
+            $('#PayMode1').val($(this).data('paymode'));
+            $('#Basic1').val($(this).data('basic'));
+            $('#Hra1').val($(this).data('hra'));
+            $('#MedAllowance1').val($(this).data('medallowance'));
+            $('#ConAllowance1').val($(this).data('conallowance'));
+            $('#FlexiAllowance1').val($(this).data('flexiallowance'));
+            $('#ProvidentFund1').val($(this).data('providentfund'));
+            $('#Tds1').val($(this).data('tds'));
+            $('#ProfTax1').val($(this).data('proftax'));
+            $('#Lop1').val($(this).data('lop'));
+            $('#EmpName1').val($(this).data('empname'));
+            $('#FlexiAllowance1').val($(this).data('flexiallowance'));
+            $('#Department1').val($(this).data('department'));
+            $('#PayPeriod1').val($(this).data('payperiod'));
+            $('#Position1').val($(this).data('position'));
+            $('#NetPay1').val($(this).data('netpay'));
+            $('#Month1').val($(this).data('month'));
+            $('#Year1').val($(this).data('year'));
+
+           
+        });
+    });
+
+
+
+    //function showAlertWithUpdatedValues() {
+    //    var updatedValues = "Updated Values:\n";
+
+    //    // Collect the values of the updated fields and add them to the string
+    //    updatedValues += "EmpCode: " + $('#EmpCode1').val() + "\n";
+    //    updatedValues += "EmpName: " + $('#EmpName1').val() + "\n";
+    //    updatedValues += "Gender: " + $('#Gender1').val() + "\n";
+    //    // Add similar lines for other fields...
+
+    //    // Display the alert with updated values
+    //    alert(updatedValues);
+    //}
+
+    //$(document).ready(function () {
+    //    $('a[data-toggle="modal"]').on('click', function () {
+    //        // ...
+    //    });
+
+    //    // Attach the showAlertWithUpdatedValues function to the "Update" button click event
+    //    $('#updateButton').click(function () {
+    //        showAlertWithUpdatedValues();
+    //    });
+    //});
+
+
+
+
+
+</script>
+
+
+
+
+
+
+

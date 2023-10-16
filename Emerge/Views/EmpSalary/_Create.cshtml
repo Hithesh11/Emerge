@@ -1,0 +1,175 @@
+﻿@model Emerge.Models.EmployeeSalary
+
+<div class="modal-dialog modal-dialog-centered" style="width: 900px" role="document">
+    <div class="modal-content" style="width: 800px; padding: 30px;">
+
+        <!-- Create Leave Form -->
+                <form asp-action="Create" method="post">
+                    <!-- Leave form fields here -->
+          <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="EmpCode" class="control-label">EmpCode</label>
+                <input asp-for="EmpCode" class="form-control" />
+                <span asp-validation-for="EmpCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="EmpName" class="control-label">EmpName</label>
+                <input asp-for="EmpName" class="form-control" />
+                <span asp-validation-for="EmpName" class="text-danger"></span>
+            </div>
+          
+        
+            <div class="form-group col-md-4">
+                    <label asp-for="Gender" class="control-label">Gender</label>
+                    <select asp-for="Gender" class="form-control" required>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Department" class="control-label">Department</label>
+                <input asp-for="Department" class="form-control" />
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+           
+         
+            <div class="form-group col-md-4">
+                <label asp-for="PayPeriod" class="control-label">PayPeriod</label>
+                <input asp-for="PayPeriod" class="form-control" />
+                <span asp-validation-for="PayPeriod" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="Doj" class="control-label">Doj</label>
+              @*  <input asp-for="Doj" class="form-control" />*@
+                    <input asp-for="Doj" class="form-control" type="datetime-local"  value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+
+                    <span asp-validation-for="Doj" class="text-danger"></span>
+            </div>
+            </div>
+
+
+            
+            <div class="form-group">
+                <label asp-for="Position" class="control-label">Position</label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="BankName" class="control-label">BankName</label>
+                <input asp-for="BankName"  class="form-control" />
+                <span asp-validation-for="BankName" class="text-danger"></span>
+            </div>
+           
+           
+            <div class="form-group col-md-6">
+                <label asp-for="AccNo" class="control-label">AccNo</label>
+                <input asp-for="AccNo"  class="form-control" />
+                <span asp-validation-for="AccNo" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label asp-for="PayMode" class="control-label">PayMode</label>
+                <input asp-for="PayMode" class="form-control" />
+                <span asp-validation-for="PayMode" class="text-danger"></span>
+            </div>
+        </div>
+<div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Basic" class="control-label">Basic</label>
+                <input asp-for="Basic" class="form-control" />
+                <span asp-validation-for="Basic" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="Hra" class="control-label">Hra</label>
+                <input asp-for="Hra"  class="form-control" />
+                <span asp-validation-for="Hra" class="text-danger"></span>
+            </div>
+           
+
+           
+            <div class="form-group col-md-4">
+                <label asp-for="MedAllowance" class="control-label">MedAllowance</label>
+                <input asp-for="MedAllowance" class="form-control" />
+                <span asp-validation-for="MedAllowance" class="text-danger"></span>
+            </div></div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="ConAllowance" class="control-label">ConAllowance</label>
+                <input asp-for="ConAllowance" class="form-control" />
+                <span asp-validation-for="ConAllowance" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group col-md-4">
+                <label asp-for="FlexiAllowance" class="control-label">Flexi Allowance</label>
+                <input asp-for="FlexiAllowance" class="form-control" />
+                <span asp-validation-for="FlexiAllowance" class="text-danger"></span>
+            </div>
+          
+
+    
+            <div class="form-group col-md-4">
+                <label asp-for="ProvidentFund" class="control-label">Provident Fund</label>
+                <input asp-for="ProvidentFund"  class="form-control" />
+                <span asp-validation-for="ProvidentFund" class="text-danger"></span>
+            </div></div>
+                <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Tds" class="control-label">Tds</label>
+                <input asp-for="Tds"  class="form-control" />
+                <span asp-validation-for="Tds" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="ProfTax" class="control-label">ProfTax</label>
+                <input asp-for="ProfTax" class="form-control" />
+                <span asp-validation-for="ProfTax" class="text-danger"></span>
+            </div>
+           
+             
+            <div class="form-group col-md-4">
+                <label asp-for="Lop" class="control-label">Lop</label>
+                <input asp-for="Lop" class="form-control" />
+                <span asp-validation-for="Lop" class="text-danger"></span>
+            </div>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="NetPay" class="control-label">NetPay</label>
+                <input asp-for="NetPay" class="form-control" />
+                <span asp-validation-for="NetPay" class="text-danger"></span>
+            </div>
+         
+          
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Month" class="control-label">Month</label>
+                <input asp-for="Month"  class="form-control" />
+                <span asp-validation-for="Month" class="text-danger"></span>
+            </div>
+ 
+            <div class="form-group col-md-6">
+                <label asp-for="Year" class="control-label">Year</label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            </div>
+          
+            <div class="modal-footer justify-content-center">
+                    <!-- Create and Cancel buttons -->
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Create</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+                </form>
+                <!-- End Create Leave Form -->
+            </div>
+        </div>
+   

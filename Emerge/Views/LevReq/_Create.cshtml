@@ -1,0 +1,71 @@
+﻿@model Emerge.Models.LeaveRequest
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+  
+
+        <form asp-action="Create" method="post">
+                    <!-- Leave form fields here -->
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="startDate" class="control-label">Start Date</label>
+                    <input asp-for="startDate" class="form-control" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required/>
+                    <span asp-validation-for="startDate" class="text-danger"></span>
+                    </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="endDate" class="control-label">End Date</label>
+                    <input asp-for="endDate" class="form-control" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+                    <span asp-validation-for="endDate" class="text-danger"></span>
+                    </div>
+                    </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="leaveTypeId" class="control-label">Leave TypeId</label>
+                    <input asp-for="leaveTypeId" class="form-control" required />
+                <span asp-validation-for="leaveTypeId" class="text-danger"></span>
+                    </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="dateRequested" class="control-label">Requested Date</label>
+                    <input asp-for="dateRequested" class="form-control" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+                    <span asp-validation-for="dateRequested" class="text-danger"></span>
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                <label asp-for="requestComments" class="control-label">Request Comments</label>
+                <input asp-for="requestComments" class="form-control" required />
+                <span asp-validation-for="requestComments" class="text-danger"></span>
+                    </div>
+       @*     <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="approved" class="control-label">Approved</label>
+                <input asp-for="approved" class="form-control" />
+                <span asp-validation-for="approved" class="text-danger"></span>
+                    </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="cancelled" class="control-label">Cancelled</label>
+                <input asp-for="cancelled" class="form-control" />
+                <span asp-validation-for="cancelled" class="text-danger"></span>
+                    </div>
+                 </div>*@
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="requestingEmployeeId" class="control-label">Requesting EmployeeId</label>
+                    <input asp-for="requestingEmployeeId" class="form-control" required />
+                <span asp-validation-for="requestingEmployeeId" class="text-danger"></span>
+                    </div>
+                    </div>
+            <div class="modal-footer justify-content-center">
+                    <!-- Create and Cancel buttons -->
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Create</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+                <!-- End Create Leave Form -->
+
+            </div>
+        </div>
+   

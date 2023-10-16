@@ -1,0 +1,76 @@
+﻿@model List<Emerge.Models.LeaveRequest>
+
+<h1>Leave Request</h1>
+
+<!---------  LeaveReq, EmpSalary, Accounts, Billing    ---------->
+
+<!-- Button to trigger Create Leave Modal -->
+<button style="font-size: 12px; padding: 5px 10px;" class="btn btn-success" data-toggle="modal" data-target="#createLeaveModal">Create</button>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Leave Type</th>
+                <th hidden>Date Requested</th>
+                <th hidden>Request Comments</th>
+                <th hidden>Approved</th>
+                <th hidden>Cancelled</th>
+                <th hidden>Requesting EmployeeId</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.startDate</td>
+                    <td>@item.endDate</td>
+                    <td>@item.leaveTypeId</td>
+                    <td hidden>@item.dateRequested</td>
+                    <td hidden>@item.requestComments</td>
+                    <td hidden>@item.approved</td>
+                    <td hidden>@item.cancelled</td>
+                    <td hidden>@item.requestingEmployeeId</td>
+
+                    <td>
+                        <a asp-action="LevReq" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-primary" asp-controller="LevReq" asp-route-id="@item.id" data-id="@item.id" data-startdate="@item.startDate.ToString("yyyy-MM-dd")" data-enddate="@item.endDate.ToString("yyyy-MM-dd")" data-leavetypeid="@item.leaveTypeId" data-daterequested="@item.dateRequested.ToString("yyyy-MM-dd")" data-requestcomments="@item.requestComments" data-approved="@item.approved" data-cancelled="@item.cancelled" data-requestingEmployeeId="@item.requestingEmployeeId" data-toggle="modal" data-target="#editLeaveModal">Edit</a>
+
+                        <a asp-action="Delete" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-danger" asp-route-id="@item.id" data-id="@item.id" data-toggle="modal" data-target="#deleteLeaveModal">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No leave records found.</p>
+}
+
+
+<div class="modal fade" id="createLeaveModal" tabindex="-1" role="dialog" aria-labelledby="createLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Create",new Emerge.Models.LeaveRequest())
+</div>
+
+
+<div class="modal fade" id="editLeaveModal" tabindex="-1" role="dialog" aria-labelledby="editLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Edit",new Emerge.Models.LeaveRequest())
+
+</div>
+
+
+<div class="modal fade" id="deleteLeaveModal" tabindex="-1" role="dialog" aria-labelledby="deleteLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Delete",new Emerge.Models.LeaveRequest())
+</div>
+
+
+
+
+
+
+
+

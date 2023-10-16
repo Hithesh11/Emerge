@@ -1,0 +1,30 @@
+﻿@model Emerge.Models.LeaveInfo
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <form asp-action="DeleteConfirmed" method="post">
+            <!-- Hidden input for id -->
+            <input type="hidden" asp-for="Id" id="deleteId" name="deleteId" />
+            <div class="modal-body">
+                <p>Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-danger">Delete</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    // JavaScript function to handle the "Delete" link click
+    $(document).ready(function () {
+        $('a[data-toggle="modal"]').on('click', function () {
+            var id = $(this).data('id'); // Get the value of data-id attribute
+            $('#deleteId').val(id); // Set the value of the hidden input in the modal
+        });
+    });
+</script>
+
+

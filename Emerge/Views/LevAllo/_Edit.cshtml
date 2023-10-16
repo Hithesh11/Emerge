@@ -1,0 +1,50 @@
+﻿@model Emerge.Models.LeaveAllocation
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+        <form asp-action="Edit" method="post">
+    <input asp-for="Id" id="leaveId" name="Id" type="hidden"  />
+    <div class="form-group">
+       
+        <label asp-for="LeaveTypeId" class="control-label">Leave Type</label>
+        <input asp-for="LeaveTypeId" id="leaveTypeId1" name="LeaveTypeId" class="form-control" />
+        <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EmployeeId" class="control-label">Emplyoee Id</label>
+        <input asp-for="EmployeeId" id="EmployeeId1" name="EmployeeId" class="form-control" />
+        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NumberOfDays" class="control-label">No. of Days</label>
+        <input asp-for="NumberOfDays" id="NumberOfDays1" name="NumberOfDays" class="form-control" />
+        <span asp-validation-for="NumberOfDays" class="text-danger"></span>
+    </div>
+
+
+
+
+            <div class="modal-footer justify-content-center">
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Update</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+
+</div></div>
+
+<script>
+    // JavaScript function to handle the "Edit" link click
+    $(document).ready(function () {
+        $('a[data-toggle="modal"]').on('click', function () {
+            var id = $(this).data('id'); // Get the value of data-id attribute
+            $('#leaveId').val(id);          
+            $('#leaveTypeId1').val($(this).data('leavetypeid'));
+            $('#EmployeeId1').val($(this).data('employeeid'));
+            $('#NumberOfDays1').val($(this).data('numberofdays'));
+            
+          
+               
+        });
+    });
+</script>

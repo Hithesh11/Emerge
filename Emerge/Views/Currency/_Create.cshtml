@@ -1,0 +1,37 @@
+﻿@model Emerge.Models.Currency
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+        <!-- Create Leave Form -->
+                <form asp-action="Create" method="post">
+                    <!-- Leave form fields here -->
+        
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                <label asp-for="Code" class="control-label">Code</label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+
+            <div class="form-group">
+                <label asp-for="Abbreviation" class="control-label">Abbreviation</label>
+                <input asp-for="Abbreviation" class="form-control" />
+                <span asp-validation-for="Abbreviation" class="text-danger"></span>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                    <!-- Create and Cancel buttons -->
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Create</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+                <!-- End Create Leave Form -->
+            </div>
+        </div>
+   

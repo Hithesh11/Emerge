@@ -1,0 +1,153 @@
+﻿@model Emerge.Models.Clients
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+        <form asp-action="Edit" method="post">
+            <input asp-for="Id" id="EditId" name="Id" type="hidden" />
+   
+    <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+        <input asp-for="Name" id="Name1" name="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Gstin" class="control-label">Gstin</label>
+        <input asp-for="Gstin" id="Gstin1" name="empName" class="form-control" />
+        <span asp-validation-for="Gstin" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Cin" class="control-label">Cin</label>
+        <input asp-for="Cin" id="Cin1" name="Cin" class="form-control" />
+        <span asp-validation-for="Cin" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+        <label asp-for="BuildingNumber" class="control-label">Building Number</label>
+        <input asp-for="BuildingNumber" id="BuildingNumber1" name="BuildingNumber" class="form-control" />
+        <span asp-validation-for="BuildingNumber" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-6">
+        <label asp-for="Line1" class="control-label">Line1</label>
+        <input asp-for="Line1" id="Line11" name="Line1" class="form-control" />
+        <span asp-validation-for="Line1" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+        <label asp-for="Line2" class="control-label">Line2</label>
+        <input asp-for="Line2" id="Line21" name="Line2" class="form-control" />
+        <span asp-validation-for="Line2" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-6">
+        <label asp-for="City" class="control-label">City</label>
+        <input asp-for="City" id="City1" name="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="State" class="control-label">State</label>
+        <input asp-for="State" id="State1" name="State" class="form-control" />
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="PostalCode" class="control-label">Postal Code</label>
+        <input asp-for="PostalCode" id="PostalCode1" name="PostalCode" class="form-control" />
+        <span asp-validation-for="PostalCode" class="text-danger"></span>
+    </div>
+   
+
+            <div class="form-group col-md-4">
+                <label asp-for="Country" class="control-label">Country</label>
+        <input asp-for="Country" id="Country1" name="Country" class="form-control" />
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+            </div>
+            <div class="form-row">
+    <div class="form-group col-md-6">
+        <label asp-for="Telephone1" class="control-label">Telephone1</label>
+        <input asp-for="Telephone1" id="Telephone11" name="Telephone1" class="form-control" />
+        <span asp-validation-for="Telephone1" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-6">
+        <label asp-for="Telephone2" class="control-label">Telephone2</label>
+        <input asp-for="Telephone2" id="Telephone21" name="Telephone2" class="form-control" />
+        <span asp-validation-for="Telephone2" class="text-danger"></span>
+    </div>
+    </div>
+     <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Url" class="control-label">Url</label>
+        <input asp-for="Url" id="Url1" name="Url" class="form-control" />
+        <span asp-validation-for="Url" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="CurrencyId" class="control-label">CurrencyId</label>
+        <input asp-for="CurrencyId" id="CurrencyId1" name="CurrencyId" class="form-control" />
+        <span asp-validation-for="CurrencyId" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+        <label asp-for="ToEmailIdList" class="control-label">ToEmailIdList</label>
+        <input asp-for="ToEmailIdList" id="ToEmailIdList1" name="ToEmailIdList" class="form-control" />
+        <span asp-validation-for="ToEmailIdList" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="CcEmailIdList" class="control-label">CcEmailIdList</label>
+        <input asp-for="CcEmailIdList" id="CcEmailIdList1" name="providentFund" class="form-control" />
+        <span asp-validation-for="CcEmailIdList" class="text-danger"></span>
+    </div>
+  
+
+            <div class="form-group col-md-4">
+                <label asp-for="BccEmailIdList" class="control-label">BccEmailIdList</label>
+        <input asp-for="BccEmailIdList" id="BccEmailIdList1" name="BccEmailIdList" class="form-control" />
+        <span asp-validation-for="BccEmailIdList" class="text-danger"></span>
+    </div>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Update</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+</div></div>
+
+<script>
+    // JavaScript function to handle the "Edit" link click
+    $(document).ready(function () {
+        $('a[data-toggle="modal"]').on('click', function () {
+            var id = $(this).data('id'); // Get the value of data-id attribute
+                                 
+            $('#EditId').val(id);
+            $('#Name1').val($(this).data('name'));
+
+            $('#Gstin1').val($(this).data('gstin'));
+            $('#Cin1').val($(this).data('cin'));
+            $('#BuildingNumber1').val($(this).data('buildingnumber'));
+            $('#Line11').val($(this).data('lineone'));
+            $('#Line21').val($(this).data('linetwo'));
+            $('#City1').val($(this).data('city'));
+            $('#State1').val($(this).data('state'));
+            $('#PostalCode1').val($(this).data('postalcode'));
+            $('#Country1').val($(this).data('country'));
+            $('#Telephone11').val($(this).data('telephoneone'));
+            $('#Telephone21').val($(this).data('telephonetwo'));
+            $('#Url1').val($(this).data('url'));
+            $('#CurrencyId1').val($(this).data('currencyid'));
+            $('#ToEmailIdList1').val($(this).data('toemailidlist'));
+            $('#CcEmailIdList1').val($(this).data('ccemailidlist'));
+            $('#BccEmailIdList1').val($(this).data('bccemailidlist'));
+         
+        });
+    });
+</script>

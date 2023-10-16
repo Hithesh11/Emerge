@@ -1,0 +1,100 @@
+﻿@model Emerge.Models.LeaveRequest
+<!-- Create Leave Form -->
+    
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+
+        <form asp-controller="LevReq" asp-action="Edit" method="post">
+        <input asp-for="id" id="leaveId" name="id" type="hidden"  />
+            <div class="form-row">
+            <div class="form-group col-md-6">
+        <label asp-for="startDate" class="control-label">Start Date</label>
+                    <input asp-for="startDate" id="StartDate1" name="startDate" class="form-control" required />
+        <span asp-validation-for="startDate" class="text-danger"></span>
+    </div>
+
+
+            <div class="form-group col-md-6">
+        <label asp-for="endDate" class="control-label">End Date</label>
+                    <input asp-for="endDate" id="EndDate1" name="endDate" class="form-control" required />
+        <span asp-validation-for="endDate" class="text-danger"></span>
+    </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+        <label asp-for="leaveTypeId" class="control-label">Leave Type Id</label>
+                    <input asp-for="leaveTypeId" id="leaveTypeId1" name="leaveTypeId" class="form-control" required />
+        <span asp-validation-for="leaveTypeId" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-6">
+        <label asp-for="dateRequested" class="control-label">Date Requested</label>
+                    <input asp-for="dateRequested" id="DateRequested1" name="dateRequested" class="form-control" required />
+        <span asp-validation-for="dateRequested" class="text-danger"></span>
+    </div>
+    </div>
+
+            <div class="form-group">
+        <label asp-for="requestComments" class="control-label">Request Comments</label>
+                <input asp-for="requestComments" id="requestcomments1" name="requestComments" class="form-control" required />
+        <span asp-validation-for="requestComments" class="text-danger"></span>
+    </div>
+            @*<div class="form-row">
+            <div class="form-group col-md-6">
+        <label asp-for="approved" class="control-label">Approved</label>
+        <input asp-for="approved" id="approved1" name="approved" class="form-control" />
+        <span asp-validation-for="approved" class="text-danger"></span>
+    </div>
+
+            <div class="form-group col-md-6">
+        <label asp-for="cancelled" class="control-label">Cancelled</label>
+        <input asp-for="cancelled" id="cancelled1" name="cancelled" class="form-control" />
+        <span asp-validation-for="cancelled" class="text-danger"></span>
+    </div>
+    </div>*@
+            <div class="form-row">
+            <div class="form-group col-md-6">
+        <label asp-for="requestingEmployeeId" class="control-label">Requesting Employee Id</label>
+                    <input asp-for="requestingEmployeeId" id="requestingEmployeeId1" name="requestingEmployeeId" class="form-control" required />
+        <span asp-validation-for="requestingEmployeeId" class="text-danger"></span>
+    </div>
+    </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Update</button>
+    <button type="button"style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+</div></div>
+
+<script>
+    $(document).ready(function () {
+        $('a[data-toggle="modal"]').on('click', function () {
+            var id = $(this).data('id');
+            $('#leaveId').val(id);
+           
+            var startdate = new Date($(this).data('startdate'));
+            var sdFormatted = startdate.toISOString().split('T')[0] + 'T' + startdate.toTimeString().split(' ')[0];
+            $('#StartDate1').val(sdFormatted);
+
+            var enddate = new Date($(this).data('enddate'));
+            var edFormatted = enddate.toISOString().split('T')[0] + 'T' + enddate.toTimeString().split(' ')[0];
+            $('#EndDate1').val(edFormatted);
+       
+          
+            $('#leaveTypeId1').val($(this).data('leavetypeid'));
+
+            var daterequested = new Date($(this).data('daterequested'));
+            var drFormatted = daterequested.toISOString().split('T')[0] + 'T' + daterequested.toTimeString().split(' ')[0];
+            $('#DateRequested1').val(drFormatted);
+           
+            $('#requestcomments1').val($(this).data('requestcomments'));
+            $('#approved1').val($(this).data('approved'));
+            $('#cancelled1').val($(this).data('cancelled'));
+            $('#requestingEmployeeId1').val($(this).data('requestingemployeeid'));
+         
+        });
+    });
+
+</script>

@@ -1,0 +1,30 @@
+﻿@model Emerge.Models.Billing
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+  
+                <form asp-action="Create" method="post">
+                    <!-- Leave form fields here -->
+   
+                    <div class="form-group">
+                <label asp-for="duration" class="control-label">Leave Type</label>
+                <input asp-for="duration" class="form-control" />
+                <span asp-validation-for="duration" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                <label asp-for="durationType" class="control-label">Employee Id</label>
+                <input asp-for="durationType" class="form-control" />
+                <span asp-validation-for="durationType" class="text-danger"></span>
+                    </div>
+
+            <div class="modal-footer justify-content-center">
+                    <!-- Create and Cancel buttons -->
+                <button type="submit"style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Create</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+                <!-- End Create Leave Form -->
+            </div>
+        </div>
+   

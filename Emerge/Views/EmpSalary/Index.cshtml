@@ -1,0 +1,109 @@
+﻿@model List<Emerge.Models.EmployeeSalary>
+
+<h1>Emplyoee Salary</h1>
+
+<!-- Button to trigger Create Leave Modal -->
+<button style="font-size: 12px; padding: 5px 10px;" class="btn btn-success" data-toggle="modal" data-target="#createLeaveModal">Create</button>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th hidden>EmpCode</th>
+                <th hidden>Gender</th>
+                <th hidden>Doj</th>
+                <th hidden>BankName</th>
+                <th hidden>AccNo</th>
+                <th hidden>PayMode</th>
+                <th hidden>Basic</th>
+                <th hidden>Hra</th>
+                <th hidden>MedAllowance</th>
+                <th hidden>ConAllowance</th>
+                <th hidden>FlexiAllowance</th>
+                <th hidden>ProvidentFund</th>
+                <th hidden>Tds</th>
+                <th hidden>ProfTax</th>
+                <th hidden>Lop</th>
+
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>Pay Period</th>
+                <th>Position</th>
+                <th>NetPay</th>
+                <th>Month</th>
+                <th>Year</th>
+
+
+            
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td hidden>@item.EmpCode</td>
+                    <td hidden>@item.Gender</td>
+                    <td hidden>@item.Doj</td>
+                    <td hidden>@item.BankName</td>
+                    <td hidden>@item.AccNo</td>
+                    <td hidden>@item.PayMode</td>
+                    <td hidden>@item.Basic</td>
+                    <td hidden>@item.Hra</td>
+                    <td hidden>@item.MedAllowance</td>
+                    <td hidden>@item.ConAllowance</td>
+                    <td hidden>@item.FlexiAllowance</td>
+                    <td hidden>@item.ProvidentFund</td>
+                    <td hidden>@item.Tds</td>
+                    <td hidden>@item.ProfTax</td>
+                    <td hidden>@item.Lop</td>
+
+                    <td>@item.EmpName</td>
+                    <td>@item.Department</td>
+                    <td>@item.PayPeriod</td>
+                    <td>@item.Position</td>
+                    <td>@item.NetPay</td>
+                    <td>@item.Month</td>
+                    <td>@item.Year</td>
+
+                    <td>
+                        <a asp-action="Edit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-primary" asp-route-id="@item.Id" data-id="@item.Id" data-empcode="@item.EmpCode" data-gender="@item.Gender" data-doj="@item.Doj.ToString("yyyy-MM-dd")" data-bankname="@item.BankName" data-accno="@item.AccNo" data-paymode="@item.PayMode" data-basic="@item.Basic" data-hra="@item.Hra" data-medallowance="@item.MedAllowance" data-conallowance="@item.ConAllowance" data-flexiallowance="@item.FlexiAllowance" data-providentfund="@item.ProvidentFund" data-tds="@item.Tds" data-proftax="@item.ProfTax" data-lop="@item.Lop" data-empname="@item.EmpName" data-department="@item.Department" data-payperiod="@item.PayPeriod" data-position="@item.Position" data-netpay="@item.NetPay" data-month="@item.Month" data-year="@item.Year" data-toggle="modal" data-target="#editLeaveModal">Edit</a>
+
+                        <a asp-action="Delete" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-danger" asp-route-id="@item.Id" data-id="@item.Id" data-toggle="modal" data-target="#deleteLeaveModal">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No leave records found.</p>
+}
+
+
+<div class="modal fade" id="createLeaveModal" tabindex="-1" role="dialog" aria-labelledby="createLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Create",new Emerge.Models.EmployeeSalary())
+</div>
+
+
+<div class="modal fade" id="editLeaveModal" tabindex="-1" role="dialog" aria-labelledby="editLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Edit",new Emerge.Models.EmployeeSalary())
+
+</div>
+
+
+<div class="modal fade" id="deleteLeaveModal" tabindex="-1" role="dialog" aria-labelledby="deleteLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Delete",new Emerge.Models.EmployeeSalary())
+</div>
+
+
+
+
+
+
+
+

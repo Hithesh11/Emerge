@@ -1,0 +1,100 @@
+﻿@model Emerge.Models.Company
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+
+        <!-- Create Leave Form -->
+            <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Gstin" class="control-label">Gstin</label>
+                <input asp-for="Gstin" class="form-control" />
+                <span asp-validation-for="Gstin" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Cin" class="control-label">Cin</label>
+                <input asp-for="Cin" class="form-control" />
+                <span asp-validation-for="Cin" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="BuildingNumber" class="control-label">BuildingNumber</label>
+                <input asp-for="BuildingNumber" class="form-control" />
+                <span asp-validation-for="BuildingNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Line1" class="control-label">Line1</label>
+                <input asp-for="Line1" class="form-control" />
+                <span asp-validation-for="Line1" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Line2" class="control-label">Line2</label>
+                <input asp-for="Line2" id="Line21" name="Line2" class="form-control" />
+                <span asp-validation-for="Line2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="City" class="control-label">City</label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="State" class="control-label">State</label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="PostalCode" class="control-label">PostalCode</label>
+                <input asp-for="PostalCode" id="PostalCode1" name="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            
+
+            <div class="form-group col-md-4">
+                <label asp-for="Country" class="control-label">Country</label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Telephone1" class="control-label">Telephone1</label>
+                <input asp-for="Telephone1" class="form-control" />
+                <span asp-validation-for="Telephone1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Telephone2" class="control-label">Telephone2</label>
+                <input asp-for="Telephone2" class="form-control" />
+                <span asp-validation-for="Telephone2" class="text-danger"></span>
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Url" class="control-label">Url</label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="modal-footer justify-content-center">
+                    <!-- Create and Cancel buttons -->
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Create</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+                </form>
+                <!-- End Create Leave Form -->
+            </div>
+        </div>
+   

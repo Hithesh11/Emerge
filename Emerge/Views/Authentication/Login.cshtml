@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Login";
+}
+
+
+
+<style>
+    /* Center the form on the page */
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust this value for the desired height */
+    }
+
+    /* Style for the login form */
+    .login-form {
+        width: 350px;
+        max-width: 350px;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f7f7f7;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style for the form fields */
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .error-message {
+        color: red;
+    }
+</style> 
+
+
+
+<div class="login-container">
+    <div class="login-form">
+        <h3 style="text-align:center">Login</h3>
+        <form asp-controller="Authentication" asp-action="Login" method="post" onsubmit="return validateForm()" novalidate>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+                <div class="error-message" id="username-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+                <div class="error-message" id="password-error"></div>
+        </div>
+         <p class="text-danger" style="margin-left:40px;">@ViewBag.LoginMessage</p>
+        @if (!string.IsNullOrWhiteSpace(ViewBag.UsernameError))
+        {
+            <p class="text-danger">@ViewBag.UsernameError</p>
+        }
+        @if (!string.IsNullOrWhiteSpace(ViewBag.PasswordError))
+        {
+            <p class="text-danger">@ViewBag.PasswordError</p>
+        }
+            <div class="modal-footer justify-content-center">
+        <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+       
+    </form>
+
+</div>
+</div>
+
+
+<script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var usernameError = document.getElementById("username-error");
+        var passwordError = document.getElementById("password-error");
+        var isValid = true;
+
+        // Check if username is empty
+        if (username.trim() === "") {
+            usernameError.textContent = "Enter Username";
+            isValid = false;
+        } else {
+            usernameError.textContent = "";
+        }
+
+        // Check if password is empty
+        if (password.trim() === "") {
+            passwordError.textContent = "Enter Password";
+            isValid = false;
+        } else {
+            passwordError.textContent = "";
+        }
+
+        return isValid;
+    }
+</script>
+
+
+

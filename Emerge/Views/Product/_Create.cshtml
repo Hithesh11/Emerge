@@ -1,0 +1,41 @@
+﻿@model Emerge.Models.Product
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+
+        <!-- Create Leave Form -->
+                <form asp-action="Create" method="post">
+                    <!-- Leave form fields here -->
+        
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FrequencyId" class="control-label">FrequencyId</label>
+                <input asp-for="FrequencyId"  class="form-control" />
+                <span asp-validation-for="FrequencyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label">Amount</label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientId" class="control-label">ClientId</label>
+                <input asp-for="ClientId"  class="form-control" />
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+            <div class="modal-footer justify-content-center">
+                    <!-- Create and Cancel buttons -->
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Create</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+                </form>
+                <!-- End Create Leave Form -->
+            </div>
+        </div>
+   

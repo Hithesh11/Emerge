@@ -1,0 +1,101 @@
+﻿@model List<Emerge.Models.Company>
+
+<h1>Company</h1>
+
+<!-- Button to trigger Create Leave Modal -->
+<button style="font-size: 12px; padding: 5px 10px;" class="btn btn-success" data-toggle="modal" data-target="#createLeaveModal">Create</button>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+              
+
+
+                <th hidden>Gstin</th>
+                <th hidden>Cin</th>
+                <th hidden>BuildingNumber</th>
+                <th hidden>Line1</th>
+                <th hidden>Line2</th>
+                <th hidden>PostalCode</th>
+                <th hidden>Telephone2</th>
+                <th hidden>Url</th>
+               
+
+                <th>Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Telephone1</th>
+               
+
+
+            
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {  
+
+                
+                <tr>
+                  <td hidden>@item.Gstin</td>
+                  <td hidden>@item.Cin</td>
+                  <td hidden>@item.BuildingNumber</td>
+                  <td hidden>@item.Line1</td>
+                  <td hidden>@item.Line2</td>
+
+                  <td hidden>@item.PostalCode</td>
+                  <td hidden>@item.Telephone2</td>
+                  <td hidden>@item.Url</td>
+
+
+                  <td>@item.Name</td>
+                  <td>@item.City</td>
+                  <td>@item.State</td>
+                  <td>@item.Country</td>
+                  <td>@item.Telephone1</td>
+                  
+
+                    <td>
+
+                        <a asp-action="Edit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-primary" asp-route-id="@item.Id" data-id="@item.Id" data-name="@item.Name" data-gstin="@item.Gstin" data-cin="@item.Cin" data-buildingnumber="@item.BuildingNumber" data-lineone="@item.Line1" data-linetwo="@item.Line2" data-city="@item.City" data-state="@item.State" data-postalcode="@item.PostalCode" data-country="@item.Country" data-telephoneone="@item.Telephone1" data-telephonetwo="@item.Telephone2" data-url="@item.Url" data-toggle="modal" data-target="#editLeaveModal">Edit</a>
+
+                        <a asp-action="Delete" style="font-size: 12px; padding: 5px 10px;" class="btn btn-outline-danger" asp-route-id="@item.Id" data-id="@item.Id" data-toggle="modal" data-target="#deleteLeaveModal">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No leave records found.</p>
+}
+
+
+<div class="modal fade" id="createLeaveModal" tabindex="-1" role="dialog" aria-labelledby="createLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Create",new Emerge.Models.Company())
+</div>
+
+
+<div class="modal fade" id="editLeaveModal" tabindex="-1" role="dialog" aria-labelledby="editLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Edit",new Emerge.Models.Company())
+
+</div>
+
+
+<div class="modal fade" id="deleteLeaveModal" tabindex="-1" role="dialog" aria-labelledby="deleteLeaveModalLabel" aria-hidden="true">
+    @await Html.PartialAsync("_Delete",new Emerge.Models.Company())
+</div>
+
+
+
+
+
+
+
+

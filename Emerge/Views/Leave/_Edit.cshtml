@@ -1,0 +1,117 @@
+﻿@model Emerge.Models.LeaveInfo
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="width: 600px; padding: 30px;">
+        <form asp-action="Edit" method="post">
+            <input asp-for="Id" id="leaveId" name="Id" type="hidden" />
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Type" class="control-label">Leave Type</label>
+                    <input asp-for="Type" id="Type1" name="Type" class="form-control" required />
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Leave Description</label>
+                <input asp-for="Description" id="Description1" name="Description" class="form-control" required />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="NoOfDays" class="control-label">No. of Days</label>
+                    <input asp-for="NoOfDays" id="NoOfDayToEdit" name="NoOfDays" class="form-control" required />
+                    <span asp-validation-for="NoOfDays" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="MaxSlot" class="control-label">Max Slot</label>
+                    <input asp-for="MaxSlot" id="MaxSlotToEdit" name="MaxSlot" class="form-control" required />
+                    <span asp-validation-for="MaxSlot" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Gender" class="control-label">Gender</label>
+                <select asp-for="Gender" id="Gender1" name="Gender" class="form-control" required>
+                    <option value="M" selected="@Model.Gender == " M"">Male</option>
+                    <option value="F" selected="@Model.Gender == " F"">Female</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+
+                <div class="form-group col-md-6">
+                    <label asp-for="StartValidityDays" class="control-label">Start Validity Days</label>
+                    <input asp-for="StartValidityDays" id="StartValidityDays1" name="StartValidityDays" class="form-control" required />
+                    <span asp-validation-for="StartValidityDays" class="text-danger"></span>
+                </div>
+                </div>
+            
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="CarryForwardDays" class="control-label">Carry Forward Days</label>
+                    <input asp-for="CarryForwardDays" id="CarryForwardDays1" name="CarryForwardDays" class="form-control" required />
+                    <span asp-validation-for="CarryForwardDays" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Designation" class="control-label">Designation</label>
+                    <input asp-for="Designation" id="Designation1" name="Designation" class="form-control" required />
+                    <span asp-validation-for="Designation" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="submit" style="font-size: 12px; padding: 5px 10px;" class="btn btn-primary">Update</button>
+                <button type="button" style="font-size: 12px; padding: 5px 10px;" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript function to handle the "Edit" link click
+    $(document).ready(function () {
+        $('a[data-toggle="modal"]').on('click', function () {
+            var id = $(this).data('id'); // Get the value of data-id attribute
+            $('#leaveId').val(id);
+            $('#Type1').val($(this).data('type'));
+            $('#Description1').val($(this).data('description'));
+
+            $('#NoOfDayToEdit').val($(this).data('noofdays'));
+            $('#MaxSlotToEdit').val($(this).data('maxslot'));
+          
+            $('#Gender1').val($(this).data('gender'));
+            $('#StartValidityDays1').val($(this).data('startvaliditydays'));
+            $('#CarryForwardDays1').val($(this).data('carryforwarddays'));
+            $('#Designation1').val($(this).data('designation'));
+        });
+
+        // Add a submit event handler to the form
+        $('form').submit(function (event) {
+            var noOfDays = $('#NoOfDays1').val();
+            var maxSlot = $('#MaxSlot1').val();
+
+            // Remove existing warnings
+            $('#NoOfDaysWarning').remove();
+            $('#MaxSlotWarning').remove();
+
+            // Check if No. of Days is zero
+            if (parseInt(noOfDays) === 0) {
+                $('#NoOfDays1').after('<span id="NoOfDaysWarning" class="text-danger">No. of Days cannot be zero.</span>');
+                event.preventDefault();
+            }
+
+            if (parseInt(maxSlot) === 0) {
+                $('#MaxSlot1').after('<span id="MaxSlotWarning" class="text-danger">Max Slot cannot be zero.</span>');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    });
+</script>
+
+
